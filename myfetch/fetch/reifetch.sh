@@ -28,7 +28,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-version=7.1.0
+version=1.2
 
 # Fallback to a value of '5' for shells which support bash
 # but do not set the 'BASH_' shell variables (osh).
@@ -5772,7 +5772,7 @@ EOF
 
         ;;
 
-        "Fedora"* | "RFRemix"*)
+        "Fedora"* | "RFRemix"* | "Fed"* | "FD"*)
             set_colors 4 7 1
             read -rd '' ascii_data <<'EOF'
 ${c1}          /:-------------:\\
@@ -5859,6 +5859,21 @@ ${c1}..............
                                             c
                                             .'
                                              .
+
+EOF
+        ;;
+
+        "0"*)
+            set_colors 4 8
+            read -rd '' ascii_data <<'EOF'
+${c1}
+
+EOF
+        ;;
+
+        "Kat"*)
+            set_colors 4 8
+            read -rd '' ascii_data <<'EOF'
 EOF
         ;;
     esac
@@ -5907,8 +5922,8 @@ main() {
     [[ $image_backend == *w3m* ]] && display_image
 
     # Add neofetch info to verbose output.
-    err "Neofetch command: $0 $*"
-    err "Neofetch version: $version"
+    err "Reifetch command: $0 $*"
+    err "Reifetch version: $version"
 
     [[ $verbose == on ]] && printf %b "$err" >&2
 
